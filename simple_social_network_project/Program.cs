@@ -11,9 +11,9 @@ namespace simple_social_network_project
         public struct User
         {
             string userName;
-            int password;
-            bool gender; // true-->male, false-->female
-            DateTime birthDate; // y,m,d
+            int userPassword;
+            bool userGender; // true-->male, false-->female
+            DateTime userBirthDate; // y,m,d
             bool adminFlag=false; // true-->admin
             string userCountry;
 
