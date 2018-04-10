@@ -54,7 +54,7 @@ namespace simple_social_network_project
             {
                 for(int i=0; i<Users.Count(); i++)
                 {
-                    if(account.username==Users[i].name && account.password==Users[i].password)
+                    if(account.name==Users[i].userName && account.password==Users[i].userPassword)
                         current_user=Users[i];
                 }
                 if(current_user==NULL)
