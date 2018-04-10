@@ -10,7 +10,15 @@ namespace simple_social_network_project
     {
         public struct User
         {
-            
+            string userName;
+            int password;
+            bool gender; // true-->male, false-->female
+            DateTime birthDate; // y,m,d
+            bool adminFlag=false; // true-->admin
+            string userCountry;
+
+            public List<Post> userPostsList = new List<Post>();
+            public List<User> userFriendsList = new List<User>();
 
         };
 
@@ -34,13 +42,25 @@ namespace simple_social_network_project
         public static class SocialNetwork
         {
             public static List<User> Users;
-            public static User current_user;
+            public static User current_user = NULL;
             public static void Create_Account(Account account,String name,DateTime date_of_birth,Boolean gender,String city)
             {
 
                
 
             }
+            
+            void login (Account)
+            {
+                for(int i=0; i<Users.Count(); i++)
+                {
+                    if(Account.username==Users[i].name && Account.password==Users[i].password)
+                        current_user=Users[i];
+                }
+                if(current_user==NULL)
+                    Console.WriteLine("Invalid username or password, please check them again.");
+            }
+            
             public static void Delete_Post(Post post)
             {
                 current_user.Posts.Remove(post);
