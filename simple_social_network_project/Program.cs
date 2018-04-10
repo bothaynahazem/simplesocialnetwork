@@ -77,7 +77,10 @@ namespace simple_social_network_project
                 }
             }
 
-
+            void likePost(Post post)
+            {
+                post.Likes.push_back(current_user);
+            }
 
         };
         
