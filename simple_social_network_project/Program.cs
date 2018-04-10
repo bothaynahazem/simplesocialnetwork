@@ -50,11 +50,11 @@ namespace simple_social_network_project
 
             }
             
-            void login (Account)
+            void login (Account account)
             {
                 for(int i=0; i<Users.Count(); i++)
                 {
-                    if(Account.username==Users[i].name && Account.password==Users[i].password)
+                    if(account.username==Users[i].name && account.password==Users[i].password)
                         current_user=Users[i];
                 }
                 if(current_user==NULL)
