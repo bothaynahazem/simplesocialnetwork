@@ -11,12 +11,14 @@ namespace simple_social_network_project
         public struct User
         {
             string userName;
-            int userPassword;
+            string userEmail;
+            long userPassword; // password includes numbers only
+            long userPhoneNumber;
             bool userGender; // true-->male, false-->female
             DateTime userBirthDate; // y,m,d
-            bool adminFlag=false; // true-->admin
             string userCountry;
-
+            bool adminFlag=false; // true-->admin
+            
             public List<Post> userPostsList = new List<Post>();
             public List<User> userFriendsList = new List<User>();
 
@@ -51,15 +53,18 @@ namespace simple_social_network_project
 
             }
             
-            void login (Account account)
+            void Login (Account account)
             {
                 for(int i=0; i<Users.Count(); i++)
                 {
-                    if(account.name==Users[i].userName && account.password==Users[i].userPassword)
+                    if(account.accountEmail==Users[i].userEmail && account.accountPassword==Users[i].userPassword)
+                    {
                         current_user=Users[i];
+                        break;
+                    }
                 }
                 if(current_user==NULL)
-                    Console.WriteLine("Invalid username or password, please check them again.");
+                    Console.WriteLine("Invalid username or password, please check them again.\n If you don't have an account, you can sign up now!");
             }
             
             public static void Delete_Post(Post post)
@@ -78,7 +83,7 @@ namespace simple_social_network_project
                 }
             }
 
-            void likePost(Post post)
+            void LikePost(Post post)
             {
                 post.Likes.push_back(current_user);
             }
