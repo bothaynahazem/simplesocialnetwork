@@ -36,7 +36,8 @@ namespace simple_social_network_project
 
         public struct Comment
         {
-
+            User CommentingUser;
+            string TheComment;
         };
 
         public static class SocialNetwork
@@ -80,6 +81,21 @@ namespace simple_social_network_project
             void likePost(Post post)
             {
                 post.Likes.push_back(current_user);
+            }
+
+            public static void WritePost(Post newPost)
+            {
+                current_user.userPostsList.Add(newPost);
+            }
+
+            public static void DeleteComment(Comment commentToBeDeleted)
+            {
+             
+            }
+
+            public static void DeleteAccount(Account accountToBeDeleted)
+            {
+                //there should be an adjacency list of accounts from which the account is deleted
             }
 
         };
