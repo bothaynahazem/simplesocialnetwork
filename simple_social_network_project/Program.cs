@@ -10,9 +10,10 @@ namespace simple_social_network_project
     {
         public struct User
         {
-            string userName;
+            string userFisrtName;
+            string userLastName;
             string userEmail;
-            long userPassword; // password includes numbers only
+            string userPassword;
             long userPhoneNumber;
             bool userGender; // true-->male, false-->female
             DateTime userBirthDate; // y,m,d
@@ -85,7 +86,7 @@ namespace simple_social_network_project
 
             void LikePost(Post post)
             {
-                post.Likes.push_back(current_user);
+                post.Likes.Add(current_user);
             }
 
             public static void WritePost(Post newPost)
